@@ -86,7 +86,7 @@ The following programs must be installed on the operator machine:
 * bash
 * psql
 * coreutils
-* jq >= 1.5
+* jq >= 1.5 <=1.6
 * golang >= 1.8 (no binaries are shipped at the moment)
 * awk
 * sed
