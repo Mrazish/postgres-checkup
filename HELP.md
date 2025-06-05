@@ -97,6 +97,22 @@ This report gives understanding, how securely the database stores data.
 > Insights:
 > - When the checksums are enabled, the pg_verify_checksums utility can be used (added in version 11; renamed to pg_checksums in version 12).
 > - pg_rewind utility requires wal_log_hints to be turned on (default value is off).
+
+### A011 Connection Pooling
+
+Checks if pgbouncer connection pooler is installed and running on the host.
+
+> Insights:
+> - Having a connection pooler reduces overhead from opening new connections.
+> - pgbouncer can be used to limit the number of active sessions.
+
+### A012 Anti-crash Checks
+
+Shows important settings that help prevent data loss after crashes.
+
+> Insights:
+> - `fsync` and `full_page_writes` should normally be enabled.
+> - `synchronous_commit` can be tuned to balance durability vs. performance.
 # D. Monitoring / Troubleshooting
 
 Reports of this group help to understand if the database configuration settings for collecting statistics are correct. Without statistics, monitoring systems will not be able to function well.
