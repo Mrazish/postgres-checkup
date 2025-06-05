@@ -331,9 +331,9 @@ Docker support implemented by [Ivan Muratov](https://gitlab.com/binakot).
 - [x] A006 Postgres setting deviations #9, #62, #63, #86
 - [x] A007 Altered settings #18, #86
 - [x] A008 Disk usage and file system type #19, #20
-- [ ] A010 Data checksums, wal_log_hints #22
-- [ ] A011 Connection pooling. pgbouncer #23
-- [ ] A012 Anti-crash checks #177
+- [x] A010 Data checksums, wal_log_hints #22
+- [x] A011 Connection pooling. pgbouncer #23
+- [x] A012 Anti-crash checks #177
 
 ## B. Backups and DR
 

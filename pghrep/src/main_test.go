@@ -10,25 +10,25 @@ import (
 func TestGetFilePathSuccess(t *testing.T) {
 	path, _ := filepath.Abs(filepath.Dir(os.Args[0]))
 	result := GetFilePath("file://" + path)
-	if strings.Compare(path, result) != 0 {
-		t.Fatal("TestGetFilePathSuccess: received path not equeal to expected path.")
-	}
+        if strings.Compare(path, result) != 0 {
+                t.Fatalf("GetFilePath returned '%s', expected '%s'", result, path)
+        }
 }
 
 func TestGetFilePathFailed(t *testing.T) {
 	path := "file:///home/root/golang_test.txt"
 	result := GetFilePath(path)
-	if strings.Compare(path, result) == 0 {
-		t.Fatal("GetFilePatg: received path not equeal to expected path.")
-	}
+        if strings.Compare(path, result) == 0 {
+                t.Fatalf("GetFilePath should not return '%s'", path)
+        }
 }
 
 func TestFileExitsSuccess(t *testing.T) {
 	path, _ := filepath.Abs(filepath.Dir(os.Args[0]))
 	result := FileExists(path)
-	if !result {
-		t.Fatal("TestFileExitsSuccess: existing file not found.")
-	}
+        if !result {
+                t.Fatalf("FileExists failed for existing path %s", path)
+        }
 }
 
 func TestReorderHosts(t *testing.T) {
@@ -91,7 +91,7 @@ func TestReorderHosts(t *testing.T) {
 	data := ParseJson(testJson)
 	determineMasterReplica(data)
 	err := reorderHosts(data)
-	if err == nil {
-		t.Fatal("TestReorderHosts: expected error not happened.")
-	}
+        if err == nil {
+                t.Fatal("reorderHosts should return error for missing master")
+        }
 }
